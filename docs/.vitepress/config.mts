@@ -1,147 +1,96 @@
 import { defineConfig } from "vitepress";
 import { zh } from "./config/zh";
+import { shared } from "./config/shared";
 // import { en } from "./config/en";
 
-export default defineConfig({
-  extends: zh,
-  base: "/safety/",
-  title: "safety",
-  rewrites: {
-    "zh/:rest*": ":rest*",
-  }, //路径重写
-  ignoreDeadLinks: true, //忽略死链接造成的构建失败
-  lastUpdated: true,
-  cleanUrls: true,
-  metaChunk: true,
-  markdown: {
-    math: true,
-    codeTransformers: [
-      // We use `[!!code` in demo to prevent transformation, here we revert it back.
-      {
-        postprocess(code) {
-          return code.replace(/\[\!\!code/g, "[!code");
-        },
-      },
-    ],
-  },
-
-  head: [
-    // 配置网站的图标（显示在浏览器的 tab 上）
-    // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
-    ["link", { rel: "icon", href: "/safety/favicon.ico" }],
-
-    // 移动栏优化
-    [
-      "meta",
-      {
-        name: "viewport",
-        content: "width=device-width,initial-scale=1,user-scalable=no",
-      },
-    ],
-    // 引入jquery
-    [
-      "script",
-      {
-        language: "javascript",
-        type: "text/javascript",
-        src: "/safety/js/jquery.js",
-      },
-    ],
-    // 引入鼠标点击脚本
-    [
-      "script",
-      {
-        language: "javascript",
-        type: "text/javascript",
-        src: "/safety/js/MouseClickEffect.js",
-      },
-    ],
-  ],
-  // //多语言
-  // locales: {
-  //   root: {
-  //     label: "简体中文",
-  //     lang: "zh-Hans",
-  //     link: "/",
-  //   },
-  //   en: {
-  //     label: "English",
-  //     lang: "en-US",
-  //     link: "/en/",
-  //   },
-  // },
-  themeConfig: {
-    nav: [
-      // {
-      //   text: "🌟 参考",
-      //   items: [
-      //     {
-      //       // 分组标题1
-      //       text: "基础用法",
-      //       items: [
-      //         { text: "简体中文", link: "/" },
-      //         { text: "English", link: "/en/" },
-      //       ],
-      //     },
-      //   ],
-      // },
-      {
-        text: "🍉指南",
-        items: [
-          {
-            // 分组标题1
-            text: "介绍",
-            items: [{ text: "前言", link: "/preface" }],
-          },
-          {
-            // 分组标题2
-            text: "基础设置",
-            items: [
-              { text: "快速上手", link: "/getting-started" },
-              { text: "配置", link: "/configuration" },
-              { text: "页面", link: "/page" },
-              { text: "Frontmatter", link: "/frontmatter" },
-            ],
-          },
-          {
-            // 分组标题3
-            text: "进阶玩法",
-            items: [
-              { text: "Markdown", link: "/markdown" },
-              { text: "团队", link: "/team" },
-              { text: "静态部署", link: "/assets" },
-              { text: "样式美化", link: "/style" },
-              { text: "组件", link: "/components" },
-              { text: "布局插槽", link: "/layout" },
-              { text: "插件", link: "/plugin" },
-              { text: "更新及卸载", link: "/update" },
-              { text: "搭建导航", link: "/nav/" },
-            ],
-          },
-        ],
-      },
-    ],
-    // search: {
-    //   provider: "local",
-    //   options: {
-    //     translations: {
-    //       button: {
-    //         buttonText: "搜索文档",
-    //         buttonAriaLabel: "搜索文档",
-    //       },
-    //       modal: {
-    //         noResultsText: "无法找到相关结果",
-    //         resetButtonTitle: "清除查询条件",
-    //         footer: {
-    //           selectText: "选择",
-    //           navigateText: "切换",
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
-  },
-});
+export default shared;
+//  defineConfig({
+//   extends: shared,
+//   // //多语言
+//   // locales: {
+//   //   root: {
+//   //     label: "简体中文",
+//   //     lang: "zh-Hans",
+//   //     link: "/",
+//   //   },
+//   //   en: {
+//   //     label: "English",
+//   //     lang: "en-US",
+//   //     link: "/en/",
+//   //   },
+//   // },
+//   themeConfig: {
+//     nav: [
+//       // {
+//       //   text: "🌟 参考",
+//       //   items: [
+//       //     {
+//       //       // 分组标题1
+//       //       text: "基础用法",
+//       //       items: [
+//       //         { text: "简体中文", link: "/" },
+//       //         { text: "English", link: "/en/" },
+//       //       ],
+//       //     },
+//       //   ],
+//       // },
+//       {
+//         text: "🍉指南",
+//         items: [
+//           {
+//             // 分组标题1
+//             text: "介绍",
+//             items: [{ text: "前言", link: "/preface" }],
+//           },
+//           {
+//             // 分组标题2
+//             text: "基础设置",
+//             items: [
+//               { text: "快速上手", link: "/getting-started" },
+//               { text: "配置", link: "/configuration" },
+//               { text: "页面", link: "/page" },
+//               { text: "Frontmatter", link: "/frontmatter" },
+//             ],
+//           },
+//           {
+//             // 分组标题3
+//             text: "进阶玩法",
+//             items: [
+//               { text: "Markdown", link: "/markdown" },
+//               { text: "团队", link: "/team" },
+//               { text: "静态部署", link: "/assets" },
+//               { text: "样式美化", link: "/style" },
+//               { text: "组件", link: "/components" },
+//               { text: "布局插槽", link: "/layout" },
+//               { text: "插件", link: "/plugin" },
+//               { text: "更新及卸载", link: "/update" },
+//               { text: "搭建导航", link: "/nav/" },
+//             ],
+//           },
+//         ],
+//       },
+//     ],
+//     // search: {
+//     //   provider: "local",
+//     //   options: {
+//     //     translations: {
+//     //       button: {
+//     //         buttonText: "搜索文档",
+//     //         buttonAriaLabel: "搜索文档",
+//     //       },
+//     //       modal: {
+//     //         noResultsText: "无法找到相关结果",
+//     //         resetButtonTitle: "清除查询条件",
+//     //         footer: {
+//     //           selectText: "选择",
+//     //           navigateText: "切换",
+//     //         },
+//     //       },
+//     //     },
+//     //   },
+//     // },
+//   },
+// });
 
 // import { defineConfig } from "vitepress";
 // // import { zh } from "./config/index";

@@ -1,7 +1,12 @@
 import { defineConfig } from "vitepress";
-import { search as enSearch } from "./en";
+import { search as enSearch, en } from "./en";
+import { search as zhSearch, zh } from "./zh";
+import { blogTheme } from "../blog-theme";
+
 const base = "/safety/";
 export const shared = defineConfig({
+  extends: blogTheme,
+  base,
   title: "safety",
   rewrites: {
     "zh/:rest*": ":rest*",
@@ -58,15 +63,17 @@ export const shared = defineConfig({
       label: "简体中文",
       lang: "zh-Hans",
       link: "/",
+      ...zh,
     },
     en: {
       label: "English",
       lang: "en-US",
       link: "/en/",
+      ...en,
     },
   },
   themeConfig: {
-    logo: { src: "/vitepress-logo-mini.svg", width: 24, height: 24 },
+    logo: "/logo.png",
 
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },

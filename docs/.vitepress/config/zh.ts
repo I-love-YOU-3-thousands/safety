@@ -5,46 +5,24 @@ import { en } from "../config/en";
 // const require = createRequire(import.meta.url);
 // const pkg = require("vitepress/package.json");
 // 导入主题的配置
-import { blogTheme } from "../blog-theme";
 export const zh = defineConfig({
-  extends: blogTheme,
   lang: "zh-Hans",
   description: "由 Vite 和 Vue 驱动的静态站点生成器",
-
-  locales: {
-    root: {
-      label: "简体中文",
-      lang: "zh-Hans",
-      link: "/",
-    },
-    en: {
-      label: "English",
-      lang: "en-US",
-      link: "/en/",
-      ...en,
-    },
-  },
   themeConfig: {
     // 展示 2,3 级标题在目录中
     outline: {
       level: [2, 3],
       label: "目录",
     },
-    // outline: {
-    //   label: "页面导航",
-    // },
-
-    // 设置logo
-    logo: "/logo.png",
-    // editLink: {
-    //   pattern:
-    //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',
-    //   text: '去 GitHub 上编辑内容'
-    // },
+    editLink: {
+      pattern:
+        "https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path",
+      text: "去 GitHub 上编辑内容",
+    },
     // 内置离线全文搜索
-    // search: {
-    //   provider: "local",
-    // },
+    search: {
+      provider: "local",
+    },
     nav: nav(),
 
     sidebar: {
@@ -52,12 +30,6 @@ export const zh = defineConfig({
       "/guide/": { base: "/guide/", items: sidebarGuide() },
       "/reference/": { base: "/reference/", items: sidebarReference() },
     },
-
-    editLink: {
-      pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
-      text: "在 GitHub 上编辑此页面",
-    },
-
     footer: {
       message: "基于 MIT 许可发布",
       copyright: `版权所有 © 2019-${new Date().getFullYear()} 小十三`,
