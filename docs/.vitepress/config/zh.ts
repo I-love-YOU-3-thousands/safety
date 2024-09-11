@@ -1,5 +1,6 @@
 // import { createRequire } from "module";
 import { defineConfig, type DefaultTheme } from "vitepress";
+import { en } from "../config/en";
 
 // const require = createRequire(import.meta.url);
 // const pkg = require("vitepress/package.json");
@@ -9,6 +10,20 @@ export const zh = defineConfig({
   extends: blogTheme,
   lang: "zh-Hans",
   description: "由 Vite 和 Vue 驱动的静态站点生成器",
+
+  locales: {
+    root: {
+      label: "简体中文",
+      lang: "zh-Hans",
+      link: "/",
+    },
+    en: {
+      label: "English",
+      lang: "en-US",
+      link: "/en/",
+      ...en,
+    },
+  },
   themeConfig: {
     // 展示 2,3 级标题在目录中
     outline: {
@@ -33,6 +48,7 @@ export const zh = defineConfig({
     nav: nav(),
 
     sidebar: {
+      "/base/": { base: "/base/", items: sidebarBase() },
       "/guide/": { base: "/guide/", items: sidebarGuide() },
       "/reference/": { base: "/reference/", items: sidebarReference() },
     },
@@ -80,6 +96,11 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
+      text: "基础篇",
+      link: "/base/base",
+      activeMatch: "/base/",
+    },
+    {
       text: "指南",
       link: "/guide/what-is-vitePress",
       activeMatch: "/guide/",
@@ -105,6 +126,20 @@ function nav(): DefaultTheme.NavItem[] {
   ];
 }
 
+function sidebarBase(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "基础篇",
+      collapsed: false,
+      items: [
+        { text: "HTML、WEB综合问题", link: "what-is-vitepress" },
+        { text: "javascript", link: "getting-started" },
+        { text: "vue", link: "routing" },
+        { text: "react", link: "deploy" },
+      ],
+    },
+  ];
+}
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {

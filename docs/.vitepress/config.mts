@@ -1,16 +1,30 @@
 import { defineConfig } from "vitepress";
-// import { shared } from './shared'
 import { zh } from "./config/zh";
+// import { en } from "./config/en";
 
 export default defineConfig({
-  base: "/safety/",
   extends: zh,
-  lang: "zh-CN",
+  base: "/safety/",
   title: "safety",
   rewrites: {
     "zh/:rest*": ":rest*",
-  },
+  }, //路径重写
+  ignoreDeadLinks: true, //忽略死链接造成的构建失败
   lastUpdated: true,
+  cleanUrls: true,
+  metaChunk: true,
+  markdown: {
+    math: true,
+    codeTransformers: [
+      // We use `[!!code` in demo to prevent transformation, here we revert it back.
+      {
+        postprocess(code) {
+          return code.replace(/\[\!\!code/g, "[!code");
+        },
+      },
+    ],
+  },
+
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
     // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
@@ -43,24 +57,20 @@ export default defineConfig({
       },
     ],
   ],
-  //多语言
-  locales: {
-    root: {
-      label: "简体中文",
-      lang: "zh-Hans",
-      link: "/",
-    },
-    en: {
-      label: "English",
-      lang: "en-US",
-      link: "/en/",
-    },
-  },
+  // //多语言
+  // locales: {
+  //   root: {
+  //     label: "简体中文",
+  //     lang: "zh-Hans",
+  //     link: "/",
+  //   },
+  //   en: {
+  //     label: "English",
+  //     lang: "en-US",
+  //     link: "/en/",
+  //   },
+  // },
   themeConfig: {
-    // locales: {
-    //   "/": { label: "简体中文", ...zh },
-    //   "/en/": { label: "English", ...en },
-    // },
     nav: [
       // {
       //   text: "🌟 参考",
