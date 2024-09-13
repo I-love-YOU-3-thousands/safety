@@ -51,6 +51,7 @@ sticky: 1
 * [vitepress-blog-zaun](https://github.com/clark-cui/vitepress-blog-zaun)
 * [vuejs/blog](https://github.com/vuejs/blog/tree/main)
 * [列表无限滚动轮播效果](https://code.juejin.cn/pen/7145007064350195748)
+* [五彩纸屑](https://github.com/catdad/canvas-confetti)
 
 ## 主题相关资源
 * 主题地址：https://theme.sugarat.top/
