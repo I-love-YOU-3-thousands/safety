@@ -83,7 +83,7 @@ export const shared = defineConfig({
     root: {
       label: "简体中文",
       lang: "zh-Hans",
-      link: "/zh/",
+      link: "/",
       ...zh,
     },
     en: {
