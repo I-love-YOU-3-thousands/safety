@@ -1,26 +1,20 @@
-// import { createRequire } from "module";
 import { defineConfig, type DefaultTheme } from "vitepress";
-
-// const require = createRequire(import.meta.url);
-// const pkg = require("vitepress/package.json");
 import { blogTheme } from "../blog-theme";
 export const en = defineConfig({
   extends: blogTheme,
   lang: "en-US",
   description: "Vite & Vue powered static site generator.",
   themeConfig: {
-    nav: nav(),
-
-    sidebar: {
-      "/en/guide/": { base: "/en/guide/", items: sidebarGuide() },
-      "/en/reference/": { base: "/en/reference/", items: sidebarReference() },
+    // 展示 2,3 级标题在目录中
+    outline: {
+      level: [2, 3],
+      label: "目录",
     },
-
     editLink: {
       pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
       text: "在 GitHub 上编辑此页面",
     },
-
+    nav: nav(),
     footer: {
       message: "基于 MIT 许可发布",
       copyright: `版权所有 © 2019-${new Date().getFullYear()} 小十三`,
@@ -30,11 +24,6 @@ export const en = defineConfig({
       prev: "上一页",
       next: "下一页",
     },
-
-    outline: {
-      label: "页面导航",
-    },
-
     lastUpdated: {
       text: "最后更新于",
       formatOptions: {
@@ -65,7 +54,7 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: "/en/reference/",
     },
     {
-      text: "秒睡描述描述",
+      text: "版本更新English",
       items: [
         {
           text: "更新日志",
@@ -161,42 +150,42 @@ function sidebarReference(): DefaultTheme.SidebarItem[] {
 
 export const search: DefaultTheme.AlgoliaSearchOptions["locales"] = {
   en: {
-    placeholder: "搜索文档",
+    placeholder: "Search Documents",
     translations: {
       button: {
-        buttonText: "搜索文档",
-        buttonAriaLabel: "搜索文档",
+        buttonText: "Search Documents",
+        buttonAriaLabel: "Search Documents",
       },
       modal: {
         searchBox: {
-          resetButtonTitle: "清除查询条件",
-          resetButtonAriaLabel: "清除查询条件",
-          cancelButtonText: "取消",
-          cancelButtonAriaLabel: "取消",
+          resetButtonTitle: "Clear query conditions",
+          resetButtonAriaLabel: "Clear query conditions",
+          cancelButtonText: "cancel",
+          cancelButtonAriaLabel: "cancel",
         },
         startScreen: {
-          recentSearchesTitle: "搜索历史",
-          noRecentSearchesText: "没有搜索历史",
-          saveRecentSearchButtonTitle: "保存至搜索历史",
-          removeRecentSearchButtonTitle: "从搜索历史中移除",
-          favoriteSearchesTitle: "收藏",
-          removeFavoriteSearchButtonTitle: "从收藏中移除",
+          recentSearchesTitle: "Search history",
+          noRecentSearchesText: "No search history",
+          saveRecentSearchButtonTitle: "Save to search history",
+          removeRecentSearchButtonTitle: "Remove from search history",
+          favoriteSearchesTitle: "collect",
+          removeFavoriteSearchButtonTitle: "Remove from favorites",
         },
         errorScreen: {
-          titleText: "无法获取结果",
-          helpText: "你可能需要检查你的网络连接",
+          titleText: "Unable to obtain results",
+          helpText: "You may need to check your network connection",
         },
         footer: {
-          selectText: "选择",
-          navigateText: "切换",
-          closeText: "关闭",
-          searchByText: "搜索提供者",
+          selectText: "choose",
+          navigateText: "switch",
+          closeText: "close",
+          searchByText: "Search Provider",
         },
         noResultsScreen: {
-          noResultsText: "无法找到相关结果",
-          suggestedQueryText: "你可以尝试查询",
-          reportMissingResultsText: "你认为该查询应该有结果？",
-          reportMissingResultsLinkText: "点击反馈",
+          noResultsText: "No relevant results found",
+          suggestedQueryText: "You can try to query",
+          reportMissingResultsText: "You can try to query",
+          reportMissingResultsLinkText: "Click for feedback",
         },
       },
     },

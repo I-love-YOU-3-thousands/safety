@@ -26,7 +26,17 @@ const blogTheme = getThemeConfig({
 
   // markdown 图表支持（会增加一定的构建耗时）
   // mermaid: true
-
+  recommend: {
+    showSelf: true,
+    title: "🔍 推荐文章",
+    nextText: "下一页",
+    pageSize: 9,
+    empty: "暂无相关文章",
+    style: "sidebar",
+    sort: "date",
+    showDate: true,
+    showNum: true,
+  },
   // 页脚
 
   oml2d: {

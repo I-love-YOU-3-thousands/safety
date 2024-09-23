@@ -57,21 +57,6 @@ export const shared = defineConfig({
       },
     ],
   ],
-  //多语言
-  locales: {
-    root: {
-      label: "简体中文",
-      lang: "zh-Hans",
-      link: "/",
-      ...zh,
-    },
-    en: {
-      label: "English",
-      lang: "en-US",
-      link: "/en/",
-      ...en,
-    },
-  },
   themeConfig: {
     logo: "/logo.png",
 
@@ -90,7 +75,22 @@ export const shared = defineConfig({
         },
       },
     },
-
     carbonAds: { code: "CEBDT27Y", placement: "vuejsorg" },
+  },
+
+  //多语言
+  locales: {
+    root: {
+      label: "简体中文",
+      lang: "zh-Hans",
+      link: "/zh/",
+      ...zh,
+    },
+    en: {
+      label: "English",
+      lang: "en-US",
+      link: "/en/",
+      ...en,
+    },
   },
 });

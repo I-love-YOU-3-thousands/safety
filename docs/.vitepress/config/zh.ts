@@ -1,11 +1,7 @@
-// import { createRequire } from "module";
 import { defineConfig, type DefaultTheme } from "vitepress";
-import { en } from "../config/en";
-
-// const require = createRequire(import.meta.url);
-// const pkg = require("vitepress/package.json");
-// 导入主题的配置
+import { blogTheme } from "../blog-theme";
 export const zh = defineConfig({
+  extends: blogTheme,
   lang: "zh-Hans",
   description: "由 Vite 和 Vue 驱动的静态站点生成器",
   themeConfig: {
@@ -25,11 +21,11 @@ export const zh = defineConfig({
     },
     nav: nav(),
 
-    sidebar: {
-      "/base/": { base: "/base/", items: sidebarBase() },
-      "/guide/": { base: "/guide/", items: sidebarGuide() },
-      "/reference/": { base: "/reference/", items: sidebarReference() },
-    },
+    // sidebar: {
+    //   "/base/": { base: "/base/", items: sidebarBase() },
+    //   "/guide/": { base: "/guide/", items: sidebarGuide() },
+    //   "/reference/": { base: "/reference/", items: sidebarReference() },
+    // },
     footer: {
       message: "基于 MIT 许可发布",
       copyright: `版权所有 © 2019-${new Date().getFullYear()} 小十三`,
@@ -57,7 +53,7 @@ export const zh = defineConfig({
     langMenuLabel: "多语言",
     // 默认文案修改
     returnToTopLabel: "回到顶部",
-    sidebarMenuLabel: "相关文章",
+    sidebarMenuLabel: "菜单",
     lastUpdatedText: "上次更新于",
     darkModeSwitchLabel: "主题",
     lightModeSwitchTitle: "切换到浅色模式",
@@ -68,22 +64,31 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: "基础篇",
-      link: "/base/base",
-      activeMatch: "/base/",
+      text: "前端面经",
+      activeMatch: "zh/base/",
+      items: [
+        {
+          text: "基础篇",
+          link: "zh/base/base",
+        },
+        {
+          text: "进阶篇",
+          link: "zh/base/advanced",
+        },
+      ],
     },
     {
-      text: "指南",
-      link: "/guide/what-is-vitePress",
-      activeMatch: "/guide/",
+      text: "🍉指南",
+      link: "zh/guide/what-is-vitepress",
+      activeMatch: "zh/guide/",
     },
     {
       text: "参考",
-      link: "/reference/site-config",
-      activeMatch: "/reference/",
+      link: "zh/reference/site-config",
+      activeMatch: "zh/reference/",
     },
     {
-      text: "x嘻嘻嘻嘻嘻嘻嘻",
+      text: "版本更新",
       items: [
         {
           text: "更新日志",
