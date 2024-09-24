@@ -3,6 +3,7 @@ import { blogTheme } from "../blog-theme";
 export const en = defineConfig({
   extends: blogTheme,
   lang: "en-US",
+  base: "/safety/",
   description: "Vite & Vue powered static site generator.",
   themeConfig: {
     // 展示 2,3 级标题在目录中

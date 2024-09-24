@@ -4,9 +4,9 @@ import { search as zhSearch, zh } from "./zh";
 import { blogTheme } from "../blog-theme";
 
 const base = "/safety/";
+// const base = "/";
 export const shared = defineConfig({
   extends: blogTheme,
-  base,
   title: "safety",
   rewrites: {
     "zh/:rest*": ":rest*",

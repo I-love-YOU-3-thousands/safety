@@ -22,21 +22,9 @@ const blogTheme = getThemeConfig({
 
   // 搜索
   // 默认开启pagefind离线的全文搜索支持（如使用其它的可以设置为false）
-  // search: false,
-
   // markdown 图表支持（会增加一定的构建耗时）
   // mermaid: true
-  recommend: {
-    showSelf: true,
-    title: "🔍 推荐文章",
-    nextText: "下一页",
-    pageSize: 9,
-    empty: "暂无相关文章",
-    style: "sidebar",
-    sort: "date",
-    showDate: true,
-    showNum: true,
-  },
+
   // 页脚
 
   oml2d: {
@@ -111,23 +99,96 @@ const blogTheme = getThemeConfig({
 
   // 文章默认作者
   author: "小十三",
+  // 首页右侧精选文章  设置为hotArticle: false 时不展示
+  hotArticle: {
+    title: "🔥 精选文章",
+    nextText: "换一组",
+    pageSize: 9,
+    empty: "暂无精选内容",
+  },
+  // 配置评论
+  comment: {
+    type: "giscus",
+    options: {
+      repo: "I-love-YOU-3-thousands/safety",
+      repoId: "R_kgDOMvUXiQ",
+      category: "General",
+      categoryId: "DIC_kwDOMvUXic4CivcI",
+      inputPosition: "bottom",
+    },
+    mobileMinify: true,
+  },
+
+  // 侧边栏配置
+  recommend: {
+    showSelf: true,
+    title: "🔍 推荐文章",
+    nextText: "下一页",
+    pageSize: 9,
+    empty: "暂无相关文章",
+    style: "sidebar",
+    sort: "filename",
+    showDate: true,
+    showNum: true,
+  },
+  article: {
+    /**
+     * 是否展示文章的预计阅读时间
+     */
+    readingTime: true,
+    /**
+     * 是否隐藏文章页的封面展示
+     */
+    hiddenCover: false,
+    /**
+     * 阅读时间分析展示位置
+     */
+    readingTimePosition: "inline",
+    /**
+     * 自定义一系列文案标题
+     */
+    // analyzeTitles: {
+    //   inlineWordCount: '{{value}} word counts',
+    //   inlineReadTime: '{{value}} min read time',
+    //   wordCount: 'Total word count',
+    //   readTime: 'Total read time',
+    //   author: 'Author',
+    //   publishDate: 'Published on',
+    //   lastUpdated: 'Last updated on',
+    //   tag: 'Tags',
+    // }
+  },
+  alert: {
+    type: "success",
+    title: "xx功能上新啦🎉",
+    duration: 3000,
+  },
 
   // 友链
-  friend: [
-    {
-      nickname: "小十三",
-      des: "你的指尖用于改变世界的力量",
-      avatar:
-        "https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030",
-      url: "https://sugarat.top",
-    },
-    {
-      nickname: "Vitepress",
-      des: "Vite & Vue Powered Static Site Generator",
-      avatar: "https://vitepress.dev/vitepress-logo-large.webp",
-      url: "https://vitepress.dev/",
-    },
-  ],
+  friend: {
+    list: [
+      {
+        nickname: "粥里有勺糖",
+        des: "你的指尖用于改变世界的力量",
+        avatar:
+          "https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030",
+        url: "https://sugarat.top",
+      },
+      {
+        nickname: "Vitepress",
+        des: "Vite & Vue Powered Static Site Generator",
+        avatar: "https://vitepress.dev/vitepress-logo-large.webp",
+        url: "https://vitepress.dev/",
+      },
+    ],
+
+    // 开启顺序随机
+    random: true,
+    // 限制列表只展示 5 个
+    limit: 5,
+    // 自定义滚动速度（可选）
+    // scrollSpeed: 10000
+  },
 
   // 公告
   popover: {
@@ -163,6 +224,23 @@ const blogTheme = getThemeConfig({
     ],
     duration: 0,
   },
+
+  buttonAfterArticle: {
+    openTitle: "赞赏",
+    closeTitle: "下次一定",
+    content:
+      '<img src="https://img.cdn.sugarat.top/mdImg/MTY0Nzc1NTYyOTE5Mw==647755629193">',
+    icon: "aliPay",
+  },
+
+  docMetaInsertSelector: "h1",
+  docMetaInsertPosition: "after",
+  formatShowDate(date) {
+    return new Date(date).toLocaleString();
+  },
+  // formatShowDate: {
+  //   minutesAgo: " minutes ago",
+  // },
 });
 
 export { blogTheme };

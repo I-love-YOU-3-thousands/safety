@@ -4,6 +4,7 @@ export const zh = defineConfig({
   extends: blogTheme,
   lang: "zh-Hans",
   description: "由 Vite 和 Vue 驱动的静态站点生成器",
+  base: "/safety/",
   themeConfig: {
     // 展示 2,3 级标题在目录中
     outline: {
@@ -16,16 +17,10 @@ export const zh = defineConfig({
       text: "去 GitHub 上编辑内容",
     },
     // 内置离线全文搜索
-    search: {
-      provider: "local",
-    },
-    nav: nav(),
-
-    // sidebar: {
-    //   "/base/": { base: "/base/", items: sidebarBase() },
-    //   "/guide/": { base: "/guide/", items: sidebarGuide() },
-    //   "/reference/": { base: "/reference/", items: sidebarReference() },
+    // search: {
+    //   provider: "local",
     // },
+    nav: nav(),
     footer: {
       message: "基于 MIT 许可发布",
       copyright: `版权所有 © 2019-${new Date().getFullYear()} 小十三`,
@@ -65,27 +60,54 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: "前端面经",
-      activeMatch: "zh/base/",
+      activeMatch: "zh/interview",
       items: [
         {
-          text: "基础篇",
-          link: "zh/base/base",
+          text: "基础进阶",
+          link: "zh/interview/basicAdvanced/index",
+          // activeMatch: "zh/base/",
+          // items: [
+          //   {
+          //     text: "基础篇",
+          //     link: "zh/base/base",
+          //   },
+          //   {
+          //     text: "进阶篇",
+          //     link: "zh/base/improve",
+          //   },
+          // ],
         },
         {
-          text: "进阶篇",
-          link: "zh/base/advanced",
+          //精选模块
+          text: "精选模块",
+          link: "zh/interview/featuredModules/index",
+        },
+        {
+          text: "情景再现",
+          link: "zh/base/advanced/index",
         },
       ],
+
+      // items: [
+      //   {
+      //     text: "基础篇",
+      //     link: "zh/base/base",
+      //   },
+      //   {
+      //     text: "进阶篇",
+      //     link: "zh/base/advanced",
+      //   },
+      // ],
     },
     {
       text: "🍉指南",
       link: "zh/guide/what-is-vitepress",
-      activeMatch: "zh/guide/",
+      activeMatch: "guide/",
     },
     {
       text: "参考",
       link: "zh/reference/site-config",
-      activeMatch: "zh/reference/",
+      activeMatch: "reference/",
     },
     {
       text: "版本更新",
@@ -106,13 +128,14 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarBase(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: "基础篇",
+      text: "基础进阶",
       collapsed: false,
       items: [
-        { text: "HTML、WEB综合问题", link: "what-is-vitepress" },
-        { text: "javascript", link: "getting-started" },
-        { text: "vue", link: "routing" },
-        { text: "react", link: "deploy" },
+        { text: "基础篇", link: "1-base" },
+        { text: "进阶篇", link: "2-advanced" },
+        { text: "高频篇", link: "3-highFrequency" },
+        { text: "综合题型篇", link: "4-comprehensive" },
+        { text: "手写篇", link: "5-handwriting" },
       ],
     },
   ];
