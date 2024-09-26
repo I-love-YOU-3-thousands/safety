@@ -1,10 +1,7 @@
 import { defineConfig, type DefaultTheme } from "vitepress";
-import { blogTheme } from "../blog-theme";
 export const zh = defineConfig({
-  extends: blogTheme,
   lang: "zh-Hans",
   description: "由 Vite 和 Vue 驱动的静态站点生成器",
-  base: "/safety/",
   themeConfig: {
     // 展示 2,3 级标题在目录中
     outline: {
@@ -60,11 +57,11 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: "前端面经",
-      activeMatch: "zh/interview",
+      activeMatch: "/interview/",
       items: [
         {
           text: "基础进阶",
-          link: "zh/interview/basicAdvanced/index",
+          link: "/zh/interview/basicAdvanced/index",
           // activeMatch: "zh/base/",
           // items: [
           //   {
@@ -80,11 +77,11 @@ function nav(): DefaultTheme.NavItem[] {
         {
           //精选模块
           text: "精选模块",
-          link: "zh/interview/featuredModules/index",
+          link: "/zh/interview/featuredModules/index",
         },
         {
           text: "情景再现",
-          link: "zh/base/advanced/index",
+          link: "/zh/base/advanced/index",
         },
       ],
 
@@ -101,13 +98,13 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: "🍉指南",
-      link: "zh/guide/what-is-vitepress",
-      activeMatch: "guide/",
+      link: "/zh/guide/what-is-vitepress",
+      activeMatch: "/guide/",
     },
     {
       text: "参考",
-      link: "zh/reference/site-config",
-      activeMatch: "reference/",
+      link: "/zh/reference/site-config",
+      activeMatch: "/reference/",
     },
     {
       text: "版本更新",

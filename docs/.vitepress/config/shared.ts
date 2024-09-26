@@ -1,12 +1,9 @@
 import { defineConfig } from "vitepress";
-import { search as enSearch, en } from "./en";
-import { search as zhSearch, zh } from "./zh";
-import { blogTheme } from "../blog-theme";
+import { search as enSearch } from "./en";
 
 const base = "/safety/";
 // const base = "/";
 export const shared = defineConfig({
-  extends: blogTheme,
   title: "safety",
   rewrites: {
     "zh/:rest*": ":rest*",
@@ -76,21 +73,5 @@ export const shared = defineConfig({
       },
     },
     carbonAds: { code: "CEBDT27Y", placement: "vuejsorg" },
-  },
-
-  //多语言
-  locales: {
-    root: {
-      label: "简体中文",
-      lang: "zh-Hans",
-      link: "/",
-      ...zh,
-    },
-    en: {
-      label: "English",
-      lang: "en-US",
-      link: "/en/",
-      ...en,
-    },
   },
 });
